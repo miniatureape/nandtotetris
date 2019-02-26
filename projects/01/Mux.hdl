@@ -14,5 +14,19 @@ CHIP Mux {
     OUT out;
 
     PARTS:
-    // Put your code here:
+    Not(in=a,out=notone);
+    Not(in=sel,out=nottwo);
+    Not(in=b,out=notthree);
+    Not(in=sel,out=notfour);
+    And(a=notone,b=b,out=andone);
+    And(a=a,b=b,out=andtwo);
+    And(a=a,b=notthree,out=andthree);
+    And(a=andone,b=sel,out=andfour);
+    And(a=andtwo,b=nottwo,out=andfive);
+    And(a=andthree,b=notfour,out=andsix);
+    Or(a=andfour,b=andfive,out=orone);
+    Or(a=orone,b=andsix,out=ortwo);
+    And(a=a,b=b,out=andseven);
+    And(a=andseven,b=sel,out=andeight);
+    Or(a=ortwo,b=andeight,out=out);
 }
