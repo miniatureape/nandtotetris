@@ -9,10 +9,25 @@
  *          {0, in} if sel == 1
  */
 
+ /*
+i | s | a | b
+1 | 0 | 1 | 0
+0 | 1 | 0 | 0
+1 | 1 | 0 | 1
+0 | 0 | 0 | 0
+
+i!s 
+
+is
+    */
+
+
 CHIP DMux {
     IN in, sel;
     OUT a, b;
 
     PARTS:
-    // Put your code here:
+    Not(in=sel,out=notout);
+    And(a=in,b=notout,out=a);
+    And(a=in,b=sel,out=b);
 }
